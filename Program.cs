@@ -47,15 +47,15 @@ namespace LabAssignment_1
             this.accountName = accountName;
             this.balance = balance;
             this.address = address;
-            this.accountNumber = random.Next(101,200);
+            accountNumber = random.Next(101,200);
         }
-        public Account(int accountNumber, string accountName, double balance, Address address)
+       /* public Account(int accountNumber, string accountName, double balance, Address address)
         {
             this.accountNumber = accountNumber;
             this.accountName = accountName;
             this.balance = balance;
             this.address = address;            
-        }
+        }*/
         public void Withdraw(double amount)
         {
             balance = balance - amount;
@@ -122,10 +122,6 @@ namespace LabAssignment_1
             Address a1 = new Address("10","20","Dhaka","Bangladesh");
             Account ac1 = new Account("Account_1",1000.0,a1);
             ac1.ShowAccountInformation();
-
-            Address a2 = new Address("11", "21", "Dhaka", "Bangladesh");
-            Account ac2 = new Account("Account_2", 2000.0, a2);
-            ac2.ShowAccountInformation();
 
 
         }

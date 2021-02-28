@@ -41,13 +41,12 @@ namespace LabAssignment_1
         Address address;
         
         public Account() { }
-        public Account(string accountName, double balance, Address address)
-        {
-            Random random = new Random();
+        public Account(string accountName, double balance, Address address,int x)
+        {  
             this.accountName = accountName;
             this.balance = balance;
             this.address = address;
-            accountNumber = random.Next(101,200);
+            accountNumber = x;
         }
        /* public Account(int accountNumber, string accountName, double balance, Address address)
         {
@@ -73,22 +72,21 @@ namespace LabAssignment_1
             Console.WriteLine("Account number is: " + accountNumber + "\nAccount name is: "+ accountName+"\nAccount balance is: "+ balance+"\nOwner's address is: " + address.GetAddress()+"\n");
         }
     }
-    /*class Bank
+    class Bank
     {
         string bankName;
         Account[] myBank;
-        /*public void AddAccount(Account account)
+
+        public Bank()
         {
-            for(int i = 0; i < myBank.Length; i++)
-            {
-                if (myBank[i] == null)
-                {
-                    myBank[i] = account;
-                    break;
-                }
-            }
+            bankName = "Dhaka Bank Limited";
         }
-        public void DeleteAccount(int accountNumber)
+        public void AddAccount(Account account)
+        {
+            
+        }
+        
+        /*public void DeleteAccount(int accountNumber)
         {
             foreach(Account ac in myBank)
             {
@@ -108,21 +106,29 @@ namespace LabAssignment_1
                 case 2:
                 default:
             }
-        }
+        }*/
         public void PrintAccountDetails()
         {
-
+            Console.WriteLine(bankName);
         }
-    }*/
+    }
     class Program
     {
         static void Main(string[] args)
         {
-            
+            Random random = new Random();
+
             Address a1 = new Address("10","20","Dhaka","Bangladesh");
-            Account ac1 = new Account("Account_1",1000.0,a1);
+            Account ac1 = new Account("Account_1",1000.0,a1,random.Next(1000, 2000));
             ac1.ShowAccountInformation();
 
+            Address a2 = new Address("10", "20", "Comilla", "Bangladesh");
+            Account ac2 = new Account("Account_2", 2000.0, a2,random.Next(1000, 2000));
+            ac2.ShowAccountInformation();
+
+            Bank b1 = new Bank();
+            b1.PrintAccountDetails();
+            
 
         }
     }
